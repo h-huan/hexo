@@ -7,7 +7,7 @@ title: huan blog
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
+author: huan
 language: zh-CN
 timezone: ''
 
@@ -67,10 +67,10 @@ permalink_pinyin:
 postInfo:
   date: true
   update: false
-  wordCount: false # 设置文章字数统计为 true.
-  totalCount: false # 设置站点文章总字数统计为 true.
-  min2read: false # 阅读时长.
-  readCount: false # 阅读次数.
+  wordCount: true # 设置文章字数统计为 true.
+  totalCount: true # 设置站点文章总字数统计为 true.
+  min2read: true # 阅读时长.
+  readCount: true # 阅读次数.
 # 是否在首页显示音乐
 music:
   enable: true
@@ -129,7 +129,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-matery
+theme: matery
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
