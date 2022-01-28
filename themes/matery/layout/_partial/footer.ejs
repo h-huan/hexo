@@ -43,6 +43,7 @@
                 <span id="sitetime"> Loading ...</span>
                 <script>
                     var calcSiteTime = function () {
+                        window.setTimeout("siteTime()", 1000);
                         var seconds = 1000;
                         var minutes = seconds * 60;
                         var hours = minutes * 60;
@@ -66,6 +67,9 @@
                         var diff = t2 - t1;
                         var diffYears = Math.floor(diff / years);
                         var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
 
                         // 区分是否有年份.
                         var language = '<%- config.language %>';
@@ -83,7 +87,7 @@
                             var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
                                 + diffDays + ' days';
                             if (language === 'zh-CN') {
-                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天' + diffHours +' 时 ' + diffMinutes + ' 分 ' + diffSeconds + '秒';
                             } else if (language === 'zh-HK') {
                                 yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
                             }
@@ -104,6 +108,26 @@
         </div>
         <div class="col s12 m4 l4 social-link <%- socialClass %>"><%- partial('_partial/social-link') %></div>
     </div>
+    <!-- 不蒜子计数初始值纠正 -->
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);
+        var pvcountOffset = 80000;
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int);
+            }
+        }
+    });
+</script>
 </footer>
 
 <div class="progress-bar"></div>

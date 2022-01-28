@@ -4,6 +4,29 @@
 - hexo g 等价于 hexo generate #生成静态网页 (执行 $ hexo g 后会在站点根目录下生成public>文件夹, hexo会将"<font /blog/source/" 下面的.md后缀的文件编译为.html后缀的文件,存放在"/blog/public/ " 路径下)
 - hexo d 等价于 hexo deploy #将本地数据部署到远端服务器(如github)
 - hexo clean #清除缓存 ,网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的public文件夹
+- hexo new [layout] title 创建文章
+
+其中layout在caffolds中，默认情况下有三个模板post、draft、page
+| 参数          | 功能                                 | 路径                              |
+| ---           | ---                                 |  ---                              |
+| post          | 新建文章                             | /source/_posts/                              |
+| draft          | 新建草稿                            | /source/_drafts/                              |
+| page          | 新建页面（标签页、分类页）             | /source/                              |
+
+其他参数
+
+| 参数              | 描述                                                       |
+| --------------    | ------------------------------    |
+| -p, --path        | 自定义新文章的路径                                        |
+| -r, --replace     | 如果存在同名文章，将其替换                             |
+| -s, --slug        | 文章的 Slug，作为新文章的文件名和发布后的 URL               |
+默认情况下，Hexo 会使用文章的标题来决定文章文件的路径。对于独立页面来说，Hexo 会创建一个以标题为名字的目录，并在目录中放置一个 index.md 文件。你可以使用 --path 参数来覆盖上述行为、自行决定文件的目录：
+
+```
+hexo new page --path about/me "About me"
+```
+
+- 删除文章
 # 添加github用户名和邮箱
     git config --global user.name "Name"
     git config --global user.email "Email"
