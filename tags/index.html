@@ -46,7 +46,7 @@
                     
                     <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">blog</span>
+                    <!-- <span class="logo-span">blog</span> -->
                 </a>
             </div>
             
@@ -251,7 +251,7 @@
         <div class="brand">
             <div class="title center-align">
                 
-                不争、不显、不露
+                寻找、发现、追求、获取
                 
             </div>
 
@@ -304,10 +304,52 @@
             </div>
             <div class="tag-chips">
                 
+                
+                <a href="/tags/vue/" title="vue: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="vue" style="background-color: #F9EBEA;">vue
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/vite/" title="vite: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="vite" style="background-color: #F5EEF8;">vite
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
             </div>
         </div>
     </div>
 </div>
+
+    
+    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
+<style type="text/css">
+    #tag-wordcloud {
+        width: 100%;
+        height: 300px;
+    }
+</style>
+
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="tag-wordcloud" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript">
+    
+
+    $('#tag-wordcloud').jQCloud([{"text":"vue","weight":1,"link":"/tags/vue/"},{"text":"vite","weight":1,"link":"/tags/vite/"}], {
+        autoResize: true
+    });
+</script>
 
     
 
